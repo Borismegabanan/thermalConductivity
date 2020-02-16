@@ -1,0 +1,65 @@
+﻿<Window x:Class="WpfEconomy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:WpfEconomy"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="600" MinWidth="900">
+        <Window.Resources>
+            <Style TargetType="TextBox" >
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="8"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="AcceptsTab" Value="True"/>
+            
+        </Style>
+            <Style TargetType="Label" >
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="FontSize" Value="8"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+        </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" Grid.Column="0"></lvc:CartesianChart>
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label>Количество узлов (N):</Label>
+                    <Label>Окончание по времени (Tend):</Label>
+                    <Label>Толщину пластины (L):</Label>
+                    <Label>Плотность материала (Ro):</Label>
+                    <Label>Теплоёмкость материала плстины ():</Label>
+                    <Label>Начальная температура ():</Label>
+                    <Label>Температура на границице 0 ():</Label>
+                    <Label>Температура на границице ():</Label>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Name="TextBox_N"/>
+                    <TextBox Name="TextBox_Tend"/>
+                    <TextBox Name="TextBox_Lamda"/>
+                    <TextBox Name="TextBox_Ro"/>
+                    <TextBox Name="TextBox_C"/>
+                    <TextBox Name="TextBox_T0"/>
+                    <TextBox Name="TextBox_T1"/>
+                    <TextBox Name="TextBox_Tp"/>
+                </StackPanel>
+            </Grid>
+            
+        </StackPanel>
+
+    </Grid>
+</Window>

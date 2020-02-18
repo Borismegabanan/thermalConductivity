@@ -14,15 +14,14 @@
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Height" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="AcceptsTab" Value="True"/>
-            
-        </Style>
+            </Style>
             <Style TargetType="Label" >
                 <Setter Property="FontFamily" Value="Verdana"/>
-                <Setter Property="FontSize" Value="8"/>
+                <Setter Property="FontSize" Value="9"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="Height" Value="20"/>
-                <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+
         </Style>
         </Window.Resources>
     <Grid>
@@ -38,19 +37,21 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <Label>Количество узлов (N):</Label>
+                    <Label >Количество узлов (N):</Label>
                     <Label>Окончание по времени (Tend):</Label>
                     <Label>Толщину пластины (L):</Label>
-                    <Label>Плотность материала (Ro):</Label>
-                    <Label>Теплоёмкость материала плстины ():</Label>
-                    <Label>Начальная температура ():</Label>
-                    <Label>Температура на границице 0 ():</Label>
-                    <Label>Температура на границице ():</Label>
+                    <Label> Коэффициент теплопрповодности (Lamda) :</Label>
+                        <Label>Плотность материала (Ro):</Label>
+                    <Label>Теплоёмкость материала плстины (C):</Label>
+                    <Label>Начальная температура (T0):</Label>
+                    <Label>Температура на границице 0 (T1):</Label>
+                    <Label>Температура на границице (Tp):</Label>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox Name="TextBox_N"/>
-                    <TextBox Name="TextBox_Tend"/>
-                    <TextBox Name="TextBox_Lamda"/>
+                    <TextBox Name="TextBox_N" TabIndex="0"/>
+                    <TextBox Name="TextBox_Tend" TabIndex="1"/>
+                    <TextBox Name="TextBox_Lamda" TabIndex="2"/>
+                    <TextBox Name="TextBox_L" TabIndex="3"/>
                     <TextBox Name="TextBox_Ro"/>
                     <TextBox Name="TextBox_C"/>
                     <TextBox Name="TextBox_T0"/>
@@ -58,7 +59,7 @@
                     <TextBox Name="TextBox_Tp"/>
                 </StackPanel>
             </Grid>
-            
+            <Button HorizontalAlignment="Right" Content="Рассчтать" Margin="10" Click="ButtonBase_OnClick"/>
         </StackPanel>
 
     </Grid>

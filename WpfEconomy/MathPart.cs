@@ -25,23 +25,17 @@ namespace WpfEconomy
         private List<double> alpha;
         private List<double> beta;
 
-        private double Request(string name)
+        public Plate(double n, double tend, double l, double lamda, double ro, double c, double t0, double t1, double tp)
         {
-            Console.WriteLine("Enter object " + name + ": ");
-            return Convert.ToDouble(Console.ReadLine());
-        }
-
-        public void report_params()
-        {
-            N = Request("Количество узлов");
-            TEnd = Request("Окончание по времени");
-            L = Request("Толщину пластины");
-            Lamda = Request("Коэффициент теплопроводности материала");
-            Ro = Request("плотность материала");
-            C = Request("Теплоёмкость материала пластины");
-            T0 = Request("Начальная температура");
-            T1 = Request("Температура на границице 0");
-            Tp = Request($"Температура на границице {L:##.###}");
+            N = n;
+            TEnd = tend;
+            L = l;
+            Lamda = lamda;
+            Ro = ro;
+            C = C;
+            T0 = t0;
+            T1 = t1;
+            Tp = tp;
         }
 
         private void Count_step()
@@ -62,7 +56,7 @@ namespace WpfEconomy
             beta = new List<double>(T);
         }
 
-        private void Count()
+        private List<double> Count()
         {
             double ai, bi, ci, fi;
             for (double TStart = 0; TStart <= TEnd; TStart += Tau)
@@ -85,39 +79,15 @@ namespace WpfEconomy
                     T[i] = alpha[i] * T[i + 1] + beta[i];
                 }
             }
-
-        }
-
-        private void Display()
-        {
-            Console.WriteLine($"Толщина пластины L = {L}");
-            Console.WriteLine($"Число узлов N= {N}");
-            Console.WriteLine($"Коэффициент теплопроводности Lamda= {Lamda}");
-            Console.WriteLine($"Плотность материала пластины Ro= {Ro}");
-            Console.WriteLine($"Теплоёмкость пластины C= {C}");
-            Console.WriteLine($"Начальная температура T0= {T0}");
-            Console.WriteLine($"Температура на границаT1= {T1}");
-            Console.WriteLine($"Tr= {Tp}");
-            Console.WriteLine($"h= {H}");
-            Console.WriteLine($"tau= {Tau}");
-            Console.WriteLine($"T= {TEnd}");
-
-            Console.WriteLine();
-
-            for (int i = 0; i < T.Count; i++)
-            {
-                Console.WriteLine($"h={H * i:##.###}  T={T[i]:##.###}");
-            }
-
+            return T;
         }
 
 
-        public void Start()
+        public List<double> Start()
         {
             Count_step();
             InizializtionOfVectors();
-            Count();
-            Display();
+            return Count();
         }
 
     }

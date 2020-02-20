@@ -11,7 +11,7 @@ namespace WpfEconomy
     public partial class MainWindow : Window
     {
         public SeriesCollection SeriesCollection { get; set; }
-        public Plate2d _plate;
+        public Plate1d _plate;
 
         public MainWindow()
         {
@@ -39,15 +39,15 @@ namespace WpfEconomy
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            if (TextBox_N.Text == "" || TextBox_Tend.Text == "" || TextBox_R.Text == "" || TextBox_Lamda.Text == "" || TextBox_Ro.Text == "" ||
-                TextBox_C.Text == "" || TextBox_T0.Text == "" || TextBox_Th.Text == "" )
+            if (TextBox_N.Text == "" || TextBox_Tend.Text == "" || TextBox_L.Text == "" || TextBox_Lamda.Text == "" || TextBox_Ro.Text == "" ||
+                TextBox_C.Text == "" || TextBox_T0.Text == "" || TextBox_T1.Text == "" || TextBox_Tp.Text == "")
             {
                 MessageBox.Show("Введите значения");
             }
             else
             {
 
-                _plate = new Plate2d(double.Parse(TextBox_N.Text), double.Parse(TextBox_Tend.Text), double.Parse(TextBox_R.Text), double.Parse(TextBox_Lamda.Text), double.Parse(TextBox_Ro.Text), double.Parse(TextBox_C.Text), double.Parse(TextBox_T0.Text), double.Parse(TextBox_Th.Text));
+                _plate = new Plate1d(double.Parse(TextBox_N.Text), double.Parse(TextBox_Tend.Text), double.Parse(TextBox_L.Text), double.Parse(TextBox_Lamda.Text), double.Parse(TextBox_Ro.Text), double.Parse(TextBox_C.Text), double.Parse(TextBox_T0.Text), double.Parse(TextBox_T1.Text), double.Parse(TextBox_Tp.Text));
                 ChartCreate<double>(_plate.Start());
             }
             

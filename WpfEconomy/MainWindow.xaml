@@ -39,24 +39,24 @@
                 <StackPanel Grid.Column="0">
                     <Label >Количество узлов (N):</Label>
                     <Label>Окончание по времени (Tend):</Label>
-                    <Label>Толщину пластины (L):</Label>
-                    <Label> Коэффициент теплопрповодности (Lamda) :</Label>
-                        <Label>Плотность материала (Ro):</Label>
+                    <Label>Радиус цилиндра (R):</Label>
+                    <Label>Коэффициент теплопрповодности (Lamda) :</Label>
+                    <Label>Плотность материала (Ro):</Label>
                     <Label>Теплоёмкость материала плстины (C):</Label>
                     <Label>Начальная температура (T0):</Label>
-                    <Label>Температура на границице 0 (T1):</Label>
-                    <Label>Температура на границице (Tp):</Label>
+                    <Label>Температура на границице R (Th):</Label>
+                   
+                   
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBox Name="TextBox_N" TabIndex="0" Text="500"/>
                     <TextBox Name="TextBox_Tend" TabIndex="1" Text="60"/>
-                    <TextBox Name="TextBox_Lamda" TabIndex="2" Text="46"/>
-                    <TextBox Name="TextBox_L" TabIndex="3" Text="0,1"/>
-                    <TextBox Name="TextBox_Ro" Text="7800"/>
-                    <TextBox Name="TextBox_C" Text="460"/>
+                    <TextBox Name="TextBox_R" TabIndex="3" Text="0,1"/>
+                    <TextBox Name="TextBox_Lamda" TabIndex="2" Text="0,7"/>
+                    <TextBox Name="TextBox_Ro" Text="1500"/>
+                    <TextBox Name="TextBox_C" Text="750"/>
                     <TextBox Name="TextBox_T0" Text="20"/>
-                    <TextBox Name="TextBox_T1" Text="300"/>
-                    <TextBox Name="TextBox_Tp" Text="100"/>
+                    <TextBox Name="TextBox_Th" Text="50"/>
                 </StackPanel>
             </Grid>
             <Button HorizontalAlignment="Right" Content="Рассчтать" Margin="10" Click="ButtonBase_OnClick"/>

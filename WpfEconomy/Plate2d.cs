@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace WpfEconomy
 {
-    class Plate2d
+    public class Plate2d
     {
         private double N { get; set; }
         private double TEnd { get; set; }
-        private double L { get; set; }
+        private double R { get; set; }
         private double Lamda { get; set; }
         private double Ro { get; set; }
         private double C { get; set; }
         private double T0 { get; set; }
-        private double T1 { get; set; }
-        private double Tp { get; set; }
+        private double Th { get; set; }
 
         double H { get; set; }
         double Tau { get; set; }
@@ -25,22 +24,21 @@ namespace WpfEconomy
         private List<double> alpha;
         private List<double> beta;
 
-        public Plate2d(double n, double tend, double l, double lamda, double ro, double c, double t0, double t1, double tp)
+        public Plate2d(double n, double tend, double r, double lamda, double ro, double c, double t0, double th)
         {
             N = n;
             TEnd = tend;
-            L = l;
+            R = r;
             Lamda = lamda;
             Ro = ro;
             C = c;
             T0 = t0;
-            T1 = t1;
-            Tp = tp;
+            Th = th;
         }
 
         private void Count_step()
         {
-            this.H = L / (N - 1);
+            this.H = R / (N - 1);
             this.Tau = TEnd / 100;
         }
 
@@ -59,21 +57,21 @@ namespace WpfEconomy
         private List<double> Count()
         {
             double ai, bi, ci, fi;
+            alpha[0] = 1;
+            beta[0] = 0;
             for (double TStart = Tau; TStart <= TEnd; TStart += Tau)
-            {
-                alpha[0] = 0;
-                beta[0] = T1;
+            { 
                 for (int i = 1; i < T.Count - 1; i++)
                 {
-                    ai = Lamda / (H * H);
-                    bi = 2.0 * Lamda / (H * H) + Ro * C / Tau;
-                    ci = ai;
+                    ai = (Lamda/(H*H));
+                    ci = 0.5 * Lamda * (2 * i - 3) / (H * H * (i - 1));
+                    bi = ai+ci+Ro*C/Tau;
                     fi = -Ro * C * T[i] / Tau;
                     alpha[i] = ai / (bi - ci * alpha[i - 1]);
                     beta[i] = (ci * beta[i - 1] - fi) / (bi - ci * alpha[i - 1]);
                 }
 
-                T[T.Count - 1] = Tp;
+                T[T.Count - 1] = Th;
                 for (int i = T.Count - 2; i >= 0; i--)
                 {
                     T[i] = alpha[i] * T[i + 1] + beta[i];

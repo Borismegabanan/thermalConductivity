@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
 
@@ -23,7 +11,7 @@ namespace WpfEconomy
     public partial class MainWindow : Window
     {
         public SeriesCollection SeriesCollection { get; set; }
-        public Plate _plate;
+        public Plate1d _plate;
 
         public MainWindow()
         {
@@ -59,7 +47,7 @@ namespace WpfEconomy
             else
             {
 
-                _plate = new Plate(double.Parse(TextBox_N.Text), double.Parse(TextBox_Tend.Text), double.Parse(TextBox_L.Text), double.Parse(TextBox_Lamda.Text), double.Parse(TextBox_Ro.Text), double.Parse(TextBox_C.Text), double.Parse(TextBox_T0.Text), double.Parse(TextBox_T1.Text), double.Parse(TextBox_Tp.Text));
+                _plate = new Plate1d(double.Parse(TextBox_N.Text), double.Parse(TextBox_Tend.Text), double.Parse(TextBox_L.Text), double.Parse(TextBox_Lamda.Text), double.Parse(TextBox_Ro.Text), double.Parse(TextBox_C.Text), double.Parse(TextBox_T0.Text), double.Parse(TextBox_T1.Text), double.Parse(TextBox_Tp.Text));
                 ChartCreate<double>(_plate.Start());
             }
             

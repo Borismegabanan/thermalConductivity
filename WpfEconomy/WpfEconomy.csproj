@@ -75,7 +75,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MathPart.cs" />
+    <Compile Include="Plate1d.cs" />
+    <Compile Include="Plate2d.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -48,15 +48,15 @@
                     <Label>Температура на границице (Tp):</Label>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox Name="TextBox_N" TabIndex="0"/>
-                    <TextBox Name="TextBox_Tend" TabIndex="1"/>
-                    <TextBox Name="TextBox_Lamda" TabIndex="2"/>
-                    <TextBox Name="TextBox_L" TabIndex="3"/>
-                    <TextBox Name="TextBox_Ro"/>
-                    <TextBox Name="TextBox_C"/>
-                    <TextBox Name="TextBox_T0"/>
-                    <TextBox Name="TextBox_T1"/>
-                    <TextBox Name="TextBox_Tp"/>
+                    <TextBox Name="TextBox_N" TabIndex="0" Text="500"/>
+                    <TextBox Name="TextBox_Tend" TabIndex="1" Text="60"/>
+                    <TextBox Name="TextBox_Lamda" TabIndex="2" Text="46"/>
+                    <TextBox Name="TextBox_L" TabIndex="3" Text="0,1"/>
+                    <TextBox Name="TextBox_Ro" Text="7800"/>
+                    <TextBox Name="TextBox_C" Text="460"/>
+                    <TextBox Name="TextBox_T0" Text="20"/>
+                    <TextBox Name="TextBox_T1" Text="300"/>
+                    <TextBox Name="TextBox_Tp" Text="100"/>
                 </StackPanel>
             </Grid>
             <Button HorizontalAlignment="Right" Content="Рассчтать" Margin="10" Click="ButtonBase_OnClick"/>
